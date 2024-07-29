@@ -1,5 +1,5 @@
 const graphql = require('graphql');
-const { getSeriesByKeyword, getSeriesById, getEpisodesByTags } = require('../services/seriesService');
+const { getSeriesByKeyword, getSeriesById, getEpisodesByTags, getSeriesByEpisodeTags } = require('../services/seriesService');
 
 const {
     GraphQLObjectType,
@@ -10,6 +10,14 @@ const {
     GraphQLInt,
 } = graphql;
 
+const StreamingLinkType = new GraphQLObjectType({
+    name: 'StreamingLink',
+    fields: () => ({
+        platform: { type: GraphQLString },
+        link: { type: GraphQLString }
+    })
+});
+
 const EpisodeType = new GraphQLObjectType({
     name: 'Episode',
     fields: () => ({
@@ -17,7 +25,8 @@ const EpisodeType = new GraphQLObjectType({
         season: { type: GraphQLInt },
         episodeNumber: { type: GraphQLInt },
         description: { type: GraphQLString },
-        streamingLink: { type: GraphQLString },
+        thumbnail: { type: GraphQLString }, // Aggiungi il campo thumbnail
+        streamingLinks: { type: new GraphQLList(StreamingLinkType) },
         tags: { type: new GraphQLList(GraphQLString) },
     }),
 });
@@ -28,7 +37,8 @@ const SeriesType = new GraphQLObjectType({
         id: { type: GraphQLID },
         title: { type: GraphQLString },
         languages: { type: new GraphQLList(GraphQLString) },
-        reliability: { type: GraphQLString },
+        reliability: { type: GraphQLInt },
+        image: { type: GraphQLString },
         episodes: { type: new GraphQLList(EpisodeType) },
     }),
 });
@@ -55,6 +65,13 @@ const RootQuery = new GraphQLObjectType({
             args: { tags: { type: new GraphQLList(GraphQLString) } },
             resolve(parent, args) {
                 return getEpisodesByTags(args.tags);
+            },
+        },
+        seriesByEpisodeTags: {
+            type: new GraphQLList(SeriesType),
+            args: { tags: { type: new GraphQLList(GraphQLString) } },
+            resolve(parent, args) {
+                return getSeriesByEpisodeTags(args.tags);
             },
         },
     },

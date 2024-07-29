@@ -1,36 +1,76 @@
-{
-    "series": [
-        {
-            "id": "1",
-            "title": "Grey's Anatomy",
-            "languages": ["English", "Spanish"],
-            "reliability": "High",
-            "episodes": [
-                {
-                    "title": "A Hard Day's Night",
-                    "season": 1,
-                    "episodeNumber": 1,
-                    "description": "First episode of Grey's Anatomy.",
-                    "streamingLink": "https://example.com/greys-anatomy-s01e01",
-                    "tags": ["surgery", "emergency"]
-                }
-            ]
-        },
-        {
-            "id": "2",
-            "title": "House M.D.",
-            "languages": ["English", "French"],
-            "reliability": "Medium",
-            "episodes": [
-                {
-                    "title": "Humpty Dumpty",
-                    "season": 2,
-                    "episodeNumber": 3,
-                    "description": "Third episode of the second season of House M.D.",
-                    "streamingLink": "https://example.com/house-md-s02e03",
-                    "tags": ["diagnosis", "infectious disease"]
-                }
-            ]
-        }
+[
+  {
+    "id": "1",
+    "title": "Grey's Anatomy",
+    "languages": ["English", "Spanish"],
+    "reliability": 85,
+    "image": "https://m.media-amazon.com/images/M/MV5BODA2Mjk0N2MtNGY0Mi00ZWFjLTkxODEtZDFjNDg4ZDliMGVmXkEyXkFqcGdeQXVyMzAzNTY3MDM@._V1_.jpg",
+    "episodes": [
+      {
+        "title": "Episode 1",
+        "season": 1,
+        "episodeNumber": 1,
+        "description": "A description of episode 1.",
+        "thumbnail": "https://m.media-amazon.com/images/M/MV5BODA2Mjk0N2MtNGY0Mi00ZWFjLTkxODEtZDFjNDg4ZDliMGVmXkEyXkFqcGdeQXVyMzAzNTY3MDM@._V1_.jpg",
+        "streamingLinks": [
+          {
+            "platform": "Netflix",
+            "link": "https://netflix.com"
+          }
+        ],
+        "tags": ["surgery", "emergency"]
+      },
+      {
+        "title": "Episode 2",
+        "season": 1,
+        "episodeNumber": 2,
+        "description": "A description of episode 2.",
+        "thumbnail": "https://m.media-amazon.com/images/M/MV5BODA2Mjk0N2MtNGY0Mi00ZWFjLTkxODEtZDFjNDg4ZDliMGVmXkEyXkFqcGdeQXVyMzAzNTY3MDM@._V1_.jpg",
+        "streamingLinks": [
+          {
+            "platform": "Netflix",
+            "link": "https://netflix.com"
+          }
+        ],
+        "tags": ["diagnosis", "treatment"]
+      }
     ]
-}
+  },
+  {
+    "id": "2",
+    "title": "Doctor House",
+    "languages": ["English", "French"],
+    "reliability": 90,
+    "image": "https://m.media-amazon.com/images/M/MV5BZWRiNDRiNTItMTJmZi00NzIwLTgzMTUtYmFjMDg4NDVjYmYzXkEyXkFqcGdeQXVyMTY2MzYyNzA@._V1_.jpg",
+    "episodes": [
+      {
+        "title": "Episode 1",
+        "season": 1,
+        "episodeNumber": 1,
+        "description": "A description of episode 1.",
+        "thumbnail": "https://m.media-amazon.com/images/M/MV5BZWRiNDRiNTItMTJmZi00NzIwLTgzMTUtYmFjMDg4NDVjYmYzXkEyXkFqcGdeQXVyMTY2MzYyNzA@._V1_.jpg",
+        "streamingLinks": [
+          {
+            "platform": "Amazon Prime",
+            "link": "https://primevideo.com"
+          }
+        ],
+        "tags": ["diagnosis", "puzzle"]
+      },
+      {
+        "title": "Episode 2",
+        "season": 1,
+        "episodeNumber": 2,
+        "description": "A description of episode 2.",
+        "thumbnail": "https://m.media-amazon.com/images/M/MV5BZWRiNDRiNTItMTJmZi00NzIwLTgzMTUtYmFjMDg4NDVjYmYzXkEyXkFqcGdeQXVyMTY2MzYyNzA@._V1_.jpg",
+        "streamingLinks": [
+          {
+            "platform": "Amazon Prime",
+            "link": "https://primevideo.com"
+          }
+        ],
+        "tags": ["surgery", "treatment"]
+      }
+    ]
+  }
+]
